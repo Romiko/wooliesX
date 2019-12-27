@@ -27,7 +27,7 @@ namespace WooliesX.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<double> Post(Trolley trolley)
+        public async Task<decimal> Post(Trolley trolley)
         {
             return await _client.ApiResourceTrolleyCalculatorPostAsync(_config.GetValue<Guid>("ApiToken"), trolley);
         }
