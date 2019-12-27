@@ -75,13 +75,13 @@ namespace WooliesX.Infrastructure.ApiClient
         /// <summary>This will return the lowest total given products, specials and quantities.</summary>
         /// <returns>Value of the calculated trolley.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<float> ApiResourceTrolleyCalculatorPostAsync(System.Guid token, Trolley request);
+        System.Threading.Tasks.Task<double> ApiResourceTrolleyCalculatorPostAsync(System.Guid token, Trolley request);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>This will return the lowest total given products, specials and quantities.</summary>
         /// <returns>Value of the calculated trolley.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<float> ApiResourceTrolleyCalculatorPostAsync(System.Guid token, Trolley request, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<double> ApiResourceTrolleyCalculatorPostAsync(System.Guid token, Trolley request, System.Threading.CancellationToken cancellationToken);
 
     }
 
@@ -483,7 +483,7 @@ namespace WooliesX.Infrastructure.ApiClient
         /// <summary>This will return the lowest total given products, specials and quantities.</summary>
         /// <returns>Value of the calculated trolley.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<float> ApiResourceTrolleyCalculatorPostAsync(System.Guid token, Trolley request)
+        public System.Threading.Tasks.Task<double> ApiResourceTrolleyCalculatorPostAsync(System.Guid token, Trolley request)
         {
             return ApiResourceTrolleyCalculatorPostAsync(token, request, System.Threading.CancellationToken.None);
         }
@@ -492,7 +492,7 @@ namespace WooliesX.Infrastructure.ApiClient
         /// <summary>This will return the lowest total given products, specials and quantities.</summary>
         /// <returns>Value of the calculated trolley.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<float> ApiResourceTrolleyCalculatorPostAsync(System.Guid token, Trolley request, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<double> ApiResourceTrolleyCalculatorPostAsync(System.Guid token, Trolley request, System.Threading.CancellationToken cancellationToken)
         {
             if (token == null)
                 throw new System.ArgumentNullException("token");
@@ -533,7 +533,7 @@ namespace WooliesX.Infrastructure.ApiClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200")
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<float>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<double>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -543,7 +543,7 @@ namespace WooliesX.Infrastructure.ApiClient
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
 
-                        return default(float);
+                        return default(double);
                     }
                     finally
                     {
