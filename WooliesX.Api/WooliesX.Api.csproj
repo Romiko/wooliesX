@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NSwag.AspNetCore" Version="13.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WooliesX.Application\WooliesX.Application.csproj" />
   </ItemGroup>
 
