@@ -56,8 +56,7 @@ namespace WooliesX.Api.Controllers
                 from p in shoppingOrders.SelectMany(o => o.Products)
                 group p by p.Name into pgroup
                 select new Product { Name = pgroup.Key, Price = pgroup.Average(p => p.Price), Quantity = pgroup.Sum(a => a.Quantity) }
-                )
-                .OrderByDescending(x => x.Quantity)
+                ).OrderByDescending(x => x.Quantity)
                 .ToList();
         }
     }
