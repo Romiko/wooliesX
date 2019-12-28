@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using WooliesX.Application;
+using WooliesX.Infrastructure.ApiClient;
 
 namespace WooliesX.Api
 {
@@ -42,6 +44,8 @@ namespace WooliesX.Api
                     };
                 };
             });
+            services.AddTransient<ISortManager, SortManager>();
+            services.AddTransient<IClient, Client>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

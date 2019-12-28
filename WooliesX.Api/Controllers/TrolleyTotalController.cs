@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using WooliesX.Domain.Entities;
 using WooliesX.Infrastructure.ApiClient;
 
 namespace WooliesX.Api.Controllers
